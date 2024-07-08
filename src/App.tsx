@@ -1,6 +1,7 @@
 import Button from './components/Button.tsx';
 import Card from './components/Card.tsx';
 import Container from './components/Container.tsx';
+import IconButton from './components/IconButton.tsx';
 import Input from './components/Input.tsx';
 import Section from './components/Section.tsx';
 
@@ -53,6 +54,15 @@ function App() {
                 >
                     <p>Some content</p>
                 </Card>
+            </Section>
+            <Section title="Reusable icon-button:">
+                <IconButton
+                    icon={() => <span>❤️</span>}
+                    onClick={() => alert('Button clicked!')}
+                    className="hover:text-teal-200"
+                >
+                    Like
+                </IconButton>
             </Section>
         </main>
     );
