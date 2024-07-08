@@ -3,9 +3,19 @@ import Card from './components/Card.tsx';
 import Container from './components/Container.tsx';
 import IconButton from './components/IconButton.tsx';
 import Input from './components/Input.tsx';
+import List from './components/List.tsx';
 import Section from './components/Section.tsx';
 
 function App() {
+    const users = [
+        { id: 'u1', name: 'Max' },
+        { id: 'u2', name: 'Manuel' },
+        { id: 'u3', name: 'Randy' },
+        { id: 'u4', name: 'Ozzy' },
+    ];
+
+    const hobbies = ['Sports', 'Reading', 'Cooking'];
+
     return (
         <main>
             <Section title="Inputs:">
@@ -55,7 +65,7 @@ function App() {
                     <p>Some content</p>
                 </Card>
             </Section>
-            <Section title="Reusable icon-button:">
+            <Section title="Reusable IconButton:">
                 <IconButton
                     icon={() => <span>❤️</span>}
                     onClick={() => alert('Button clicked!')}
@@ -63,6 +73,20 @@ function App() {
                 >
                     Like
                 </IconButton>
+            </Section>
+            <Section title="Reusable List">
+                <List
+                    items={users}
+                    renderItem={(user) => (
+                        <li
+                            className="rounded border p-2 hover:border-teal-200 hover:text-teal-200"
+                            key={user.id}
+                        >
+                            {user.name}
+                        </li>
+                    )}
+                    className="flex gap-4"
+                />
             </Section>
         </main>
     );

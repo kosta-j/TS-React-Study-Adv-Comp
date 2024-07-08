@@ -35,7 +35,7 @@ header {
     margin: 0 auto;
 }
 
-ul {
+/* ul {
     list-style: none;
     max-width: 40rem;
     margin: 2rem auto;
@@ -81,7 +81,7 @@ ul progress::-webkit-progress-bar {
 ul progress::-webkit-progress-value {
     background: #4562f3;
     border-radius: 6px;
-}
+} */
 
 label {
     display: block;
