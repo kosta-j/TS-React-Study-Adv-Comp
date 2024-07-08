@@ -107,6 +107,7 @@ input {
 
 .button {
     font: inherit;
+    display: inline-block;
     padding: 0.5rem;
     border-radius: 4px;
     border: 1px solid #338196;
