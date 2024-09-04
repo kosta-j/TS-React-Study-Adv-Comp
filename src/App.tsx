@@ -1,6 +1,9 @@
+import { useRef } from 'react';
+
 import Button from './components/Button.tsx';
 import Card from './components/Card.tsx';
 import Container from './components/Container.tsx';
+import Form, { type FormHandle } from './components/Form.tsx';
 import IconButton from './components/IconButton.tsx';
 import Input from './components/Input.tsx';
 import List from './components/List.tsx';
@@ -16,10 +19,20 @@ function App() {
 
     const hobbies = ['Sports', 'Reading', 'Cooking'];
 
+    const input = useRef(null);
+
+    const customForm = useRef<FormHandle>(null);
+
+    function handleSave(data: unknown) {
+        const extractedData = data as { name: string; age: string };
+        console.log(extractedData);
+        customForm.current?.clear();
+    }
+
     return (
         <main>
             <Section title="Inputs:">
-                <Input id="name" label="Your name" type="text" />
+                <Input id="name" label="Your name" type="text" ref={input} />
                 <Input id="age" label="Your age" type="number" />
             </Section>
             <Section title="Buttons:">
@@ -87,6 +100,15 @@ function App() {
                     )}
                     className="flex gap-4"
                 />
+            </Section>
+            <Section title="Wrapper Form component:">
+                <Form onSave={handleSave} ref={customForm}>
+                    <Input type="text" label="Name" id="name1" />
+                    <Input type="number" label="Age" id="age1" />
+                    <p>
+                        <Button className="button">Save</Button>
+                    </p>
+                </Form>
             </Section>
         </main>
     );
